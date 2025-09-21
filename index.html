@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classroom Soundboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Classroom Soundboard</h1>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search sounds…" aria-label="Search sounds" />
+      <label class="vol">
+        <span>Volume</span>
+        <input id="volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume slider" />
+      </label>
+      <button id="stopAll" class="stop" type="button">Stop All</button>
+      <label class="debug-toggle">
+        <input id="toggleDebug" type="checkbox" />
+        <span>Debug</span>
+      </label>
+    </div>
+    <div class="help">Keys: 1–9, 0, A–Z play labeled sounds · ESC stops all</div>
+  </header>
+
+  <main id="grid" class="grid">
+    <!-- Zip It -->
+    <button class="card" data-label="Zip It" data-key="1" data-category="Expectations" style="border-color:#e74c3c" type="button">
+      <span class="title">Zip It</span>
+      <span class="keycap">1</span>
+      <audio preload="auto" playsinline>
+        <source src="sounds/Zip_it.mp3" type="audio/mpeg" />
+      </audio>
+    </button>
+
+    <!-- Shut Up -->
+    <button class="card" data-label="Shut Up" data-key="3" data-category="Expectations" style="border-color:#16a085" type="button">
+      <span class="title">Shut Up</span>
+      <span class="keycap">3</span>
+      <audio preload="auto" playsinline>
+        <source src="sounds/Shut_Up.mp3" type="audio/mpeg" />
+      </audio>
+    </button>
+
+    <!-- Shh -->
+    <button class="card" data-label="Shh" data-key="4" data-category="Attention" style="border-color:#2980b9" type="button">
+      <span class="title">Shh</span>
+      <span class="keycap">4</span>
+      <audio preload="auto" playsinline>
+        <source src="sounds/Shh.mp3" type="audio/mpeg" />
+      </audio>
+    </button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
