@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="Speaker_Icon.png">
   <title>Classroom Soundboard</title>
-
-  <!-- Site styles (rounded colored sections, two-column layout, etc.) -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <header class="topbar">
     <h1>Classroom Soundboard</h1>
+
     <div class="controls">
       <input id="search" type="search" placeholder="Search sounds…" aria-label="Search sounds" />
       <label class="vol">
@@ -20,20 +19,33 @@
         <input id="volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume slider" />
       </label>
       <button id="stopAll" class="stop" type="button">Stop All</button>
-      <label class="debug-toggle">
-        <input id="toggleDebug" type="checkbox" />
-        <span>Debug</span>
-      </label>
-      <!-- New: on-page hotkey editor -->
-      <label class="hotkey-toggle">
-        <input id="toggleHotkeys" type="checkbox" />
-        <span>Edit Hotkeys</span>
-      </label>
     </div>
-    <div class="help">
-      Click a sound or press its hotkey. Toggle “Edit Hotkeys”, then click a key label and press 0–9 or A–Z.
-      (Esc = stop all · Backspace/Delete = clear key)
-    </div>
+
+    <!-- Collapsible Hotkeys Assignment -->
+    <details id="hotkeyPanel">
+      <summary>Hotkeys</summary>
+      <div class="hotkey-panel">
+        <form id="hotkeyForm" class="hotkey-form" autocomplete="off">
+          <label>
+            Key
+            <input id="hkKey" name="hkKey" type="text" inputmode="latin" maxlength="1" placeholder="A–Z or 0–9" required />
+          </label>
+          <label>
+            Sound
+            <select id="hkSound" name="hkSound" required></select>
+          </label>
+          <button type="submit">Add / Update</button>
+          <button id="hkClearAll" type="button" class="secondary">Clear All</button>
+        </form>
+
+        <div id="hotkeyList" class="hotkey-list" aria-live="polite"></div>
+        <p class="help" style="margin-top:8px">
+          Tip: Press <strong>Esc</strong> to stop all sounds. Mappings are saved to this browser.
+        </p>
+      </div>
+    </details>
+
+    <div class="help">Click a button or press its assigned hotkey.</div>
   </header>
 
   <main id="grid">
@@ -105,6 +117,39 @@
           </audio>
         </button>
 
+        <!-- placeholders -->
+        <button class="card" data-label="placeholder" data-category="Talking" type="button">
+          <span class="title">placeholder</span>
+          <span class="keycap" aria-label="Hotkey"></span>
+          <audio preload="auto" playsinline>
+            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
+          </audio>
+        </button>
+
+        <button class="card" data-label="placeholder" data-category="Talking" type="button">
+          <span class="title">placeholder</span>
+          <span class="keycap" aria-label="Hotkey"></span>
+          <audio preload="auto" playsinline>
+            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
+          </audio>
+        </button>
+
+        <button class="card" data-label="placeholder" data-category="Talking" type="button">
+          <span class="title">placeholder</span>
+          <span class="keycap" aria-label="Hotkey"></span>
+          <audio preload="auto" playsinline>
+            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
+          </audio>
+        </button>
+
+        <button class="card" data-label="placeholder" data-category="Talking" type="button">
+          <span class="title">placeholder</span>
+          <span class="keycap" aria-label="Hotkey"></span>
+          <audio preload="auto" playsinline>
+            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
+          </audio>
+        </button>
+
       </div>
     </div>
 
@@ -112,8 +157,6 @@
     <div class="sound-section section--management">
       <div class="section-header">Management</div>
       <div class="section-body">
-
-        <!-- No thank you inside thought -->
         <button class="card" data-label="No thank you inside thought" data-category="Management" style="border-color:#2980b9" type="button">
           <span class="title">No thank you inside thought</span>
           <span class="keycap" aria-label="Hotkey"></span>
@@ -122,7 +165,6 @@
           </audio>
         </button>
 
-        <!-- This is no democracy -->
         <button class="card" data-label="This is no democracy" data-category="Management" style="border-color:#2980b9" type="button">
           <span class="title">This is no democracy</span>
           <span class="keycap" aria-label="Hotkey"></span>
@@ -130,7 +172,6 @@
             <source src="sounds/This-is-no-Democracy-louder.mp3" type="audio/mpeg" />
           </audio>
         </button>
-
       </div>
     </div>
 
@@ -138,8 +179,6 @@
     <div class="sound-section section--individual">
       <div class="section-header">Individual Work</div>
       <div class="section-body">
-
-        <!-- Deal with your problems -->
         <button class="card" data-label="Deal with your problems yourself" data-category="Individual-Work" style="border-color:#2980b9" type="button">
           <span class="title">Deal with your problems yourself</span>
           <span class="keycap" aria-label="Hotkey"></span>
@@ -147,7 +186,6 @@
             <source src="sounds/Deal-with-your-problems.mp3" type="audio/mpeg" />
           </audio>
         </button>
-
       </div>
     </div>
 
@@ -155,8 +193,6 @@
     <div class="sound-section section--sit">
       <div class="section-header">Sit</div>
       <div class="section-body">
-
-        <!-- Have a seat -->
         <button class="card" data-label="Have a seat" data-category="Sit" style="border-color:#2980b9" type="button">
           <span class="title">Have a seat</span>
           <span class="keycap" aria-label="Hotkey"></span>
@@ -164,11 +200,9 @@
             <source src="sounds/have-a-seat.mp3" type="audio/mpeg" />
           </audio>
         </button>
-
       </div>
     </div>
 
-    
   </main>
 
   <script src="script.js"></script>
