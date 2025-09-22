@@ -21,31 +21,6 @@
       <button id="stopAll" class="stop" type="button">Stop All</button>
     </div>
 
-    <!-- Collapsible Hotkeys Assignment -->
-    <details id="hotkeyPanel">
-      <summary>Hotkeys</summary>
-      <div class="hotkey-panel">
-        <form id="hotkeyForm" class="hotkey-form" autocomplete="off">
-          <label>
-            Key
-            <input id="hkKey" name="hkKey" type="text" inputmode="latin" maxlength="1" placeholder="A–Z or 0–9" required />
-          </label>
-          <label>
-            Sound
-            <select id="hkSound" name="hkSound" required></select>
-          </label>
-          <button type="submit">Add / Update</button>
-          <button id="hkClearAll" type="button" class="secondary">Clear All</button>
-        </form>
-
-        <div id="hotkeyList" class="hotkey-list" aria-live="polite"></div>
-        <p class="help" style="margin-top:8px">
-          Tip: Press <strong>Esc</strong> to stop all sounds. Mappings are saved to this browser.
-        </p>
-      </div>
-    </details>
-
-    <div class="help">Click a button or press its assigned hotkey.</div>
   </header>
 
   <main id="grid">
@@ -169,6 +144,33 @@
         </button>
       </div>
     </div>
+
+
+       <!-- Collapsible Hotkeys Assignment -->
+    <details id="hotkeyPanel">
+      <summary>Hotkeys</summary>
+      <div class="hotkey-panel">
+        <form id="hotkeyForm" class="hotkey-form" autocomplete="off">
+          <label>
+            Key
+            <input id="hkKey" name="hkKey" type="text" inputmode="latin" maxlength="1" placeholder="A–Z or 0–9" required />
+          </label>
+          <label>
+            Sound
+            <select id="hkSound" name="hkSound" required></select>
+          </label>
+          <button type="submit">Add / Update</button>
+          <button id="hkClearAll" type="button" class="secondary">Clear All</button>
+        </form>
+
+        <div id="hotkeyList" class="hotkey-list" aria-live="polite"></div>
+        <p class="help" style="margin-top:8px">
+          Tip: Press <strong>Esc</strong> to stop all sounds. Mappings are saved to this browser.
+        </p>
+      </div>
+    </details>
+
+    <div class="help">Click a button or press its assigned hotkey.</div>
 
   </main>
 
