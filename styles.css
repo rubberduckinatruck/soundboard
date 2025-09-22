@@ -287,6 +287,13 @@ main#grid{
 }
 
 
+.section--attention {
+  --section-color: #f39c12;   /* bright orange-gold */
+  --section-bg: hsl(38 90% 55% / .10);
+}
+.section--attention .section-header {
+  background: color-mix(in srgb, var(--section-bg) 40%, #fafafa);
+}
 
 
 
