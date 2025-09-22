@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-  
 <body>
   <header class="topbar">
     <h1>Classroom Soundboard</h1>
@@ -18,8 +17,6 @@
         <span>Volume</span>
         <input id="volume" type="range" min="0" max="1" step="0.01" value="1" aria-label="Volume slider" />
       </label>
-    
-      
       <button id="stopAll" class="stop" type="button">Stop All</button>
       <label class="debug-toggle">
         <input id="toggleDebug" type="checkbox" />
@@ -29,167 +26,131 @@
     <div class="help">Keys: 1–9, 0, A–Z play labeled sounds · ESC stops all</div>
   </header>
 
-  <main id="grid" class="grid">
-  
-    
-    <!-- Zip It -->
-    <button class="card" data-label="Zip It" data-key="1" data-category="Talking" style="border-color:#e74c3c" type="button">
-      <span class="title">Zip It</span>
-      <span class="keycap">1</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/Zip_it.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+  <main id="grid">
 
-  
-    <!-- Shut Up -->
-    <button class="card" data-label="Shut Up" data-key="2" data-category="Talking" style="border-color:#16a085" type="button">
-      <span class="title">Shut Up</span>
-      <span class="keycap">2</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/Shut_Up.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+    <!-- Talking Section -->
+    <div class="sound-section">
+      <h2>Talking</h2>
+      <!-- Zip It -->
+      <button class="card" data-label="Zip It" data-key="1" data-category="Talking" style="border-color:#e74c3c" type="button">
+        <span class="title">Zip It</span>
+        <span class="keycap">1</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/Zip_it.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
-  
-    <!-- Shh -->
-    <button class="card" data-label="Shh" data-key="3" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">Shh</span>
-      <span class="keycap">3</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/Shh.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+      <!-- Shut Up -->
+      <button class="card" data-label="Shut Up" data-key="2" data-category="Talking" style="border-color:#16a085" type="button">
+        <span class="title">Shut Up</span>
+        <span class="keycap">2</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/Shut_Up.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
-  
-    
-    <!-- Deal with your problems -->
-    <button class="card" data-label="Deal with your problems" data-key="4" data-category="Individual-Work" style="border-color:#2980b9" type="button">
-      <span class="title">Deal with your problems yourself</span>
-      <span class="keycap">4</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/Deal-with-your-problems.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+      <!-- Shh -->
+      <button class="card" data-label="Shh" data-key="3" data-category="Talking" style="border-color:#2980b9" type="button">
+        <span class="title">Shh</span>
+        <span class="keycap">3</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/Shh.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
-    
-    <!-- No thank you that souds like an inside thought -->
-    <button class="card" data-label="No thank you that souds like an inside thought" data-key="5" data-category="Management" style="border-color:#2980b9" type="button">
-      <span class="title">No thank you inside thought</span>
-      <span class="keycap">5</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/no thank you that sounds like an inside thought.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+      <!-- Uh oh spagetti o one voice -->
+      <button class="card" data-label="Uh-oh-spagetti-o one-voice" data-key="6" data-category="Talking" style="border-color:#2980b9" type="button">
+        <span class="title">One Voice please</span>
+        <span class="keycap">6</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/Uh-Oh_Spagetti_O_One_Voice_Please.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
+      <!-- Its time to be quiet -->
+      <button class="card" data-label="Its-time-to-be-quiet" data-key="7" data-category="Talking" style="border-color:#2980b9" type="button">
+        <span class="title">Time to be quiet</span>
+        <span class="keycap">7</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/It-s-Time-to-Be-Quiet.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
-    <!-- Uh oh spagetti o one voice -->
-    <button class="card" data-label="Uh-oh-spagetti-o one-voice" data-key="6" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">One Voice please</span>
-      <span class="keycap">6</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/Uh-Oh_Spagetti_O_One_Voice_Please.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+      <!-- Voices are off in 5,4,3,2,1 -->
+      <button class="card" data-label="Voices-are-off-in-5" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
+        <span class="title">Voices are off in 5</span>
+        <span class="keycap">9</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/voices-are-off-in.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
-    <!-- Its time to be quiet -->
-    <button class="card" data-label="Its-time-to-be-quiet" data-key="7" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">Time to be quiet</span>
-      <span class="keycap">7</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/It-s-Time-to-Be-Quiet.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+      <!-- I don't know why you're talking while I'm talking -->
+      <button class="card" data-label="Talking-while-Im-Talking" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
+        <span class="title">I don't know why you're talking while I'm talking</span>
+        <span class="keycap">9</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/i dont know why youre talking when im talking.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
+      <!-- placeholders -->
+      <button class="card" data-label="placeholder" type="button"><span class="title">placeholder</span></button>
+      <button class="card" data-label="placeholder" type="button"><span class="title">placeholder</span></button>
+      <button class="card" data-label="placeholder" type="button"><span class="title">placeholder</span></button>
+      <button class="card" data-label="placeholder" type="button"><span class="title">placeholder</span></button>
+    </div>
 
-    <!-- This is no democracy -->
-    <button class="card" data-label="This-is-no-democracy" data-key="8" data-category="Management" style="border-color:#2980b9" type="button">
-      <span class="title">This is no democracy</span>
-      <span class="keycap">8</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/This-is-no-Democracy-louder.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+    <!-- Management Section -->
+    <div class="sound-section">
+      <h2>Management</h2>
+      <!-- No thank you inside thought -->
+      <button class="card" data-label="No thank you inside thought" data-key="5" data-category="Management" style="border-color:#2980b9" type="button">
+        <span class="title">No thank you inside thought</span>
+        <span class="keycap">5</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/no thank you that sounds like an inside thought.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
 
-    <!-- voices-are-off-in 5, 4, 3, 2, 1 -->
-    <button class="card" data-label="Voices-are-off-in-5" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">Voices are off in 5</span>
-      <span class="keycap">9</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/voices-are-off-in.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+      <!-- This is no democracy -->
+      <button class="card" data-label="This-is-no-democracy" data-key="8" data-category="Management" style="border-color:#2980b9" type="button">
+        <span class="title">This is no democracy</span>
+        <span class="keycap">8</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/This-is-no-Democracy-louder.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
+    </div>
 
+    <!-- Individual Work Section -->
+    <div class="sound-section">
+      <h2>Individual Work</h2>
+      <!-- Deal with your problems -->
+      <button class="card" data-label="Deal with your problems" data-key="4" data-category="Individual-Work" style="border-color:#2980b9" type="button">
+        <span class="title">Deal with your problems yourself</span>
+        <span class="keycap">4</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/Deal-with-your-problems.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
+    </div>
 
-    <!-- have a seat -->
-    <button class="card" data-label="placeholder" data-key="9" data-category="Sit" style="border-color:#2980b9" type="button">
-      <span class="title">Have a seat </span>
-      <span class="keycap">9</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/have-a-seat.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
+    <!-- Sit Section -->
+    <div class="sound-section">
+      <h2>Sit</h2>
+      <!-- Have a seat -->
+      <button class="card" data-label="Have a seat" data-key="9" data-category="Sit" style="border-color:#2980b9" type="button">
+        <span class="title">Have a seat</span>
+        <span class="keycap">9</span>
+        <audio preload="auto" playsinline>
+          <source src="sounds/have-a-seat.mp3" type="audio/mpeg" />
+        </audio>
+      </button>
+    </div>
 
-    
-    <!-- I don't know why you're talking while I'm talking -->
-    <button class="card" data-label="Talking-while-Im-Talking" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">I don't know why you're talking while I'm talking </span>
-      <span class="keycap">9</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/i dont know why youre talking when im talking.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
-
-
-        <!-- placeholder -->
-    <button class="card" data-label="placeholder" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">placeholder</span>
-      <span class="keycap">9</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/placeholder.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
-
-
-        <!-- placeholder -->
-    <button class="card" data-label="placeholder" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">placeholder</span>
-      <span class="keycap">9</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/placeholder.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
-
-
-        <!-- placeholder -->
-    <button class="card" data-label="placeholder" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">placeholder</span>
-      <span class="keycap">9</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/placeholder.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
-
-
-        <!-- placeholder -->
-    <button class="card" data-label="placeholder" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
-      <span class="title">placeholder</span>
-      <span class="keycap">9</span>
-      <audio preload="auto" playsinline>
-        <source src="sounds/placeholder.mp3" type="audio/mpeg" />
-      </audio>
-    </button>
-
-
-
-
-
-    
-
-    
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
-
