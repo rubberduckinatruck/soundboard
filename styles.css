@@ -295,6 +295,13 @@ main#grid{
   background: color-mix(in srgb, var(--section-bg) 40%, #fafafa);
 }
 
+.section--last-nerve {
+  --section-color: #e74c3c;              /* bright red */
+  --section-bg: hsl(4 78% 50% / 0.10);   /* soft red tint background */
+}
+.section--last-nerve .section-header {
+  background: color-mix(in srgb, var(--section-bg) 40%, #fafafa);
+}
 
 
 
