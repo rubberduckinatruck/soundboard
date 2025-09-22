@@ -6,70 +6,8 @@
   <link rel="icon" type="image/png" href="Speaker_Icon.png">
   <title>Classroom Soundboard</title>
 
-  <!-- Your existing site styles (cards, topbar, etc.) -->
+  <!-- Site styles (rounded colored sections, two-column layout, etc.) -->
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Inline styles for the new section layout/colors -->
-  <style>
-    /* Section color themes (tweak as you like) */
-    .section--talking   { --section-color: #1e90ff; }  /* Dodger Blue */
-    .section--management{ --section-color: #e67e22; }  /* Carrot */
-    .section--individual{ --section-color: #27ae60; }  /* Emerald */
-    .section--sit       { --section-color: #9b59b6; }  /* Amethyst */
-
-    /* Section container */
-    .sound-section {
-      --radius: 16px;
-      border: 3px solid var(--section-color);
-      border-radius: var(--radius);
-      background: #fff;
-      margin: 20px 0;
-      overflow: clip; /* keeps header corners crisp */
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-    }
-
-    /* Readable header bar at the top of each section */
-    .sound-section .section-header {
-      position: sticky; /* stays visible if section gets tall */
-      top: 0;
-      background: #fafafa;
-      padding: 12px 14px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #111;
-      border-bottom: 2px solid var(--section-color);
-      border-top-left-radius: calc(var(--radius) - 1px);
-      border-top-right-radius: calc(var(--radius) - 1px);
-      z-index: 1;
-    }
-
-    /* Grid of buttons inside each section */
-    .sound-section .section-body {
-      padding: 14px;
-      display: grid;
-      gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    }
-
-    /* Ensure your existing .card buttons fill grid cells nicely */
-    .sound-section .section-body .card {
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .sound-section .section-body .card:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-      transition: 120ms ease;
-    }
-
-    /* Optional: constrain main width for nicer reading on huge screens */
-    main#grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 12px;
-    }
-  </style>
 </head>
 
 <body>
@@ -86,8 +24,16 @@
         <input id="toggleDebug" type="checkbox" />
         <span>Debug</span>
       </label>
+      <!-- New: on-page hotkey editor -->
+      <label class="hotkey-toggle">
+        <input id="toggleHotkeys" type="checkbox" />
+        <span>Edit Hotkeys</span>
+      </label>
     </div>
-    <div class="help">Keys: 1–9, 0, A–Z play labeled sounds · ESC stops all</div>
+    <div class="help">
+      Click a sound or press its hotkey. Toggle “Edit Hotkeys”, then click a key label and press 0–9 or A–Z.
+      (Esc = stop all · Backspace/Delete = clear key)
+    </div>
   </header>
 
   <main id="grid">
@@ -97,94 +43,65 @@
       <div class="section-body">
 
         <!-- Zip It -->
-        <button class="card" data-label="Zip It" data-key="1" data-category="Talking" style="border-color:#e74c3c" type="button">
+        <button class="card" data-label="Zip It" data-category="Talking" style="border-color:#e74c3c" type="button">
           <span class="title">Zip It</span>
-          <span class="keycap">1</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/Zip_it.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
         <!-- Shut Up -->
-        <button class="card" data-label="Shut Up" data-key="2" data-category="Talking" style="border-color:#16a085" type="button">
+        <button class="card" data-label="Shut Up" data-category="Talking" style="border-color:#16a085" type="button">
           <span class="title">Shut Up</span>
-          <span class="keycap">2</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/Shut_Up.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
         <!-- Shh -->
-        <button class="card" data-label="Shh" data-key="3" data-category="Talking" style="border-color:#2980b9" type="button">
+        <button class="card" data-label="Shh" data-category="Talking" style="border-color:#2980b9" type="button">
           <span class="title">Shh</span>
-          <span class="keycap">3</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/Shh.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
-        <!-- Uh oh spagetti o one voice -->
-        <button class="card" data-label="Uh-oh-spagetti-o one-voice" data-key="6" data-category="Talking" style="border-color:#2980b9" type="button">
+        <!-- One Voice please -->
+        <button class="card" data-label="One Voice please" data-category="Talking" style="border-color:#2980b9" type="button">
           <span class="title">One Voice please</span>
-          <span class="keycap">6</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/Uh-Oh_Spagetti_O_One_Voice_Please.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
-        <!-- Its time to be quiet -->
-        <button class="card" data-label="Its-time-to-be-quiet" data-key="7" data-category="Talking" style="border-color:#2980b9" type="button">
+        <!-- Time to be quiet -->
+        <button class="card" data-label="Time to be quiet" data-category="Talking" style="border-color:#2980b9" type="button">
           <span class="title">Time to be quiet</span>
-          <span class="keycap">7</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/It-s-Time-to-Be-Quiet.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
-        <!-- voices-are-off-in 5, 4, 3, 2, 1 -->
-        <button class="card" data-label="Voices-are-off-in-5" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
+        <!-- Voices are off in 5 -->
+        <button class="card" data-label="Voices are off in 5" data-category="Talking" style="border-color:#2980b9" type="button">
           <span class="title">Voices are off in 5</span>
-          <span class="keycap">9</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/voices-are-off-in.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
-        <!-- I don't know why you're talking while I'm talking -->
-        <button class="card" data-label="Talking-while-Im-Talking" data-key="9" data-category="Talking" style="border-color:#2980b9" type="button">
+        <!-- Talking while I'm talking -->
+        <button class="card" data-label="I don't know why you're talking while I'm talking" data-category="Talking" style="border-color:#2980b9" type="button">
           <span class="title">I don't know why you're talking while I'm talking</span>
-          <span class="keycap">9</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/i dont know why youre talking when im talking.mp3" type="audio/mpeg" />
-          </audio>
-        </button>
-
-        <!-- placeholders -->
-        <button class="card" data-label="placeholder" data-category="Talking" type="button">
-          <span class="title">placeholder</span>
-          <audio preload="auto" playsinline>
-            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
-          </audio>
-        </button>
-
-        <button class="card" data-label="placeholder" data-category="Talking" type="button">
-          <span class="title">placeholder</span>
-          <audio preload="auto" playsinline>
-            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
-          </audio>
-        </button>
-
-        <button class="card" data-label="placeholder" data-category="Talking" type="button">
-          <span class="title">placeholder</span>
-          <audio preload="auto" playsinline>
-            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
-          </audio>
-        </button>
-
-        <button class="card" data-label="placeholder" data-category="Talking" type="button">
-          <span class="title">placeholder</span>
-          <audio preload="auto" playsinline>
-            <source src="sounds/placeholder.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
@@ -196,19 +113,19 @@
       <div class="section-header">Management</div>
       <div class="section-body">
 
-        <!-- No thank you that sounds like an inside thought -->
-        <button class="card" data-label="No thank you inside thought" data-key="5" data-category="Management" style="border-color:#2980b9" type="button">
+        <!-- No thank you inside thought -->
+        <button class="card" data-label="No thank you inside thought" data-category="Management" style="border-color:#2980b9" type="button">
           <span class="title">No thank you inside thought</span>
-          <span class="keycap">5</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/no thank you that sounds like an inside thought.mp3" type="audio/mpeg" />
           </audio>
         </button>
 
         <!-- This is no democracy -->
-        <button class="card" data-label="This-is-no-democracy" data-key="8" data-category="Management" style="border-color:#2980b9" type="button">
+        <button class="card" data-label="This is no democracy" data-category="Management" style="border-color:#2980b9" type="button">
           <span class="title">This is no democracy</span>
-          <span class="keycap">8</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/This-is-no-Democracy-louder.mp3" type="audio/mpeg" />
           </audio>
@@ -223,9 +140,9 @@
       <div class="section-body">
 
         <!-- Deal with your problems -->
-        <button class="card" data-label="Deal with your problems" data-key="4" data-category="Individual-Work" style="border-color:#2980b9" type="button">
+        <button class="card" data-label="Deal with your problems yourself" data-category="Individual-Work" style="border-color:#2980b9" type="button">
           <span class="title">Deal with your problems yourself</span>
-          <span class="keycap">4</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/Deal-with-your-problems.mp3" type="audio/mpeg" />
           </audio>
@@ -239,10 +156,10 @@
       <div class="section-header">Sit</div>
       <div class="section-body">
 
-        <!-- have a seat -->
-        <button class="card" data-label="Have a seat" data-key="9" data-category="Sit" style="border-color:#2980b9" type="button">
+        <!-- Have a seat -->
+        <button class="card" data-label="Have a seat" data-category="Sit" style="border-color:#2980b9" type="button">
           <span class="title">Have a seat</span>
-          <span class="keycap">9</span>
+          <span class="keycap" aria-label="Hotkey"></span>
           <audio preload="auto" playsinline>
             <source src="sounds/have-a-seat.mp3" type="audio/mpeg" />
           </audio>
@@ -251,6 +168,7 @@
       </div>
     </div>
 
+    
   </main>
 
   <script src="script.js"></script>
