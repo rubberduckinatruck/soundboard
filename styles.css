@@ -212,3 +212,12 @@ main#grid{
 }
 
 /* Make cards expand nicely inside section*
+
+/* Hotkey editing visual cues */
+.hotkeys-editing .keycap {
+  outline: 2px dashed rgba(0,0,0,.25);
+}
+.keycap.editing {
+  background: #fff3cd;
+  border-color: #f0ad4e !important;
+}
