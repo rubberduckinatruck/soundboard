@@ -221,3 +221,73 @@ main#grid{
   background: #fff3cd;
   border-color: #f0ad4e !important;
 }
+
+
+/* Collapsible hotkey panel tweaks */
+#hotkeyPanel { margin: 8px 12px; }
+#hotkeyPanel > summary {
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 0;
+}
+.hotkey-panel {
+  padding: 8px 0 0;
+}
+.hotkey-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  align-items: end;
+}
+.hotkey-form label {
+  display: grid;
+  gap: 4px;
+  font-size: 14px;
+}
+.hotkey-form input[type="text"],
+.hotkey-form select {
+  padding: 6px 10px;
+  font-size: 14px;
+  min-width: 160px;
+}
+.hotkey-form button {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+.hotkey-form .secondary {
+  background: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.hotkey-list {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+}
+.hk-row {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafafa;
+}
+.hk-key {
+  font-weight: 700;
+  text-align: center;
+  padding: 2px 0;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  background: #fff;
+}
+.hk-remove {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+
+
+
+
+
