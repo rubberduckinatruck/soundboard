@@ -33,3 +33,18 @@ button{cursor:pointer;border:none}
   background:#111827cc;color:#e5e7eb;font:12px/1.4 system-ui;border:1px solid #374151;border-radius:8px;z-index:9999;display:none
 }
 .debug-panel.show{display:block}
+
+.sound-section {
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: #f9f9f9;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.sound-section h2 {
+  margin-top: 0;
+  font-size: 18px;
+  text-align: center;
+}
